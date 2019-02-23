@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import ItemService from './ItemService';
 import axios from 'axios';
 import TableRow from './TableRow';
+var port = process.env.PORT || 5000;
 
 class IndexItem extends Component {
 
@@ -13,7 +14,7 @@ class IndexItem extends Component {
       this.addItemService = new ItemService();
     }
     componentDidMount(){
-      axios.get('http://localhost:5000/items')
+      axios.get('http://localhost:' + port + '/items')
       .then(response => {
         this.setState({ items: response.data });
       })
