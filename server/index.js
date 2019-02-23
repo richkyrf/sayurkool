@@ -6,6 +6,21 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
 var cors = require('cors');
+const path = require('path');
+
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+
+// Answer API requests.
+app.get('/api', function (req, res) {
+res.set('Content-Type', 'application/json');
+res.send('{"message":"Hello from the custom server!"}');
+});
+
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function(request, response) {
+response.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
 
 // Mongoose connection with mongodb
 mongoose.Promise = require('bluebird');
@@ -19,7 +34,7 @@ mongoose.connect('mongodb://fannywijaya:UBJb7hR4a5x6SflF@cluster0-shard-00-00-cb
     });
 
 // Required application specific custom router module
-var itemRouter = require('./src/routes/itemRouter');
+var itemRouter = require('../src/routes/itemRouter');
 
 // Use middlewares to set view engine and post json data to the server
 app.use(express.static('public'));
