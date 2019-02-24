@@ -14,7 +14,7 @@ class IndexItem extends Component {
       this.addItemService = new ItemService();
     }
     componentDidMount(){
-      axios.get('http://localhost:' + port + '/items')
+      axios.get('https://sayurkool.herokuapp.com/items')
       .then(response => {
         this.setState({ items: response.data });
       })

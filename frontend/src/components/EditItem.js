@@ -15,7 +15,7 @@ class EditItem extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:5000/items/edit/'+this.props.match.params.id)
+    axios.get('https://sayurkool.herokuapp.com/items/edit/'+this.props.match.params.id)
     .then(response => {
       this.setState({ value: response.data });
     })

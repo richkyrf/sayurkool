@@ -6,13 +6,13 @@ var port = process.env.PORT || 5000;
 class ItemService {
 	
    deleteData(id){
-    axios.get('http://localhost:' + port + '/items/delete/'+id)
+    axios.get('https://sayurkool.herokuapp.com/items/delete/'+id)
     .then(console.log('Deleted'))
 	.catch(err => console.log(err))
   }
 
   updateData(data, id){
-    axios.post('http://localhost:' + port + '/items/update/'+id, {
+    axios.post('https://sayurkool.herokuapp.com/items/update/'+id, {
       item: data
     })
     .then(res => this.setState({ items: res.data }))
@@ -20,7 +20,7 @@ class ItemService {
   }
 
   sendData(data) {
-    axios.post('http://localhost:' + port + '/items/add/post', {
+    axios.post('https://sayurkool.herokuapp.com/items/add/post', {
     item: data
   })
   .then(function (response) {
