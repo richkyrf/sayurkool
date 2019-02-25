@@ -1,7 +1,6 @@
 // ItemService.js
 
 import axios from 'axios';
-var port = process.env.PORT || 5000;
 
 class ItemService {
 	

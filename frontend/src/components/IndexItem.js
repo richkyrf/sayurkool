@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import ItemService from './ItemService';
 import axios from 'axios';
 import TableRow from './TableRow';
-var port = process.env.PORT || 5000;
 
 class IndexItem extends Component {
 
