@@ -8,11 +8,11 @@ var port = process.env.PORT || 5000;
 var cors = require('cors');
 const path = require('path');
 
-require('dotenv').config();
+const config = require('./config');
 
 // Mongoose connection with mongodb
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.db, { useNewUrlParser: true } )
+mongoose.connect(config.db.url, { useNewUrlParser: true } )
     .then(() => { // if all is ok we will be here
       console.log('Start');
     })

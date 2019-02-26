@@ -5,6 +5,8 @@ import ItemService from './ItemService';
 import axios from 'axios';
 import TableRow from './TableRow';
 
+const config = require('../../../server/config');
+
 class IndexItem extends Component {
 
   constructor(props) {
@@ -13,7 +15,7 @@ class IndexItem extends Component {
       this.addItemService = new ItemService();
     }
     componentDidMount(){
-      axios.get('https://sayurkool.herokuapp.com/items')
+      axios.get(config.app.url)
       .then(response => {
         this.setState({ items: response.data });
       })

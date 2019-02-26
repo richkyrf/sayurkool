@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ItemService from './ItemService';
 
+const config = require('../../../server/config');
+
 class EditItem extends Component {
 
   constructor(props) {
@@ -15,7 +17,7 @@ class EditItem extends Component {
   }
 
   componentDidMount(){
-    axios.get('https://sayurkool.herokuapp.com/items/edit/'+this.props.match.params.id)
+    axios.get(config.app.url + '/items/edit/' + this.props.match.params.id)
     .then(response => {
       this.setState({ value: response.data });
     })

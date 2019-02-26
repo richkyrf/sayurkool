@@ -2,16 +2,18 @@
 
 import axios from 'axios';
 
+const config = require('../../../server/config');
+
 class ItemService {
 	
    deleteData(id){
-    axios.get('https://sayurkool.herokuapp.com/items/delete/'+id)
+    axios.get(config.app.url + '/items/delete/'+id)
     .then(console.log('Deleted'))
 	.catch(err => console.log(err))
   }
 
   updateData(data, id){
-    axios.post('https://sayurkool.herokuapp.com/items/update/'+id, {
+    axios.post(config.app.url + '/items/update/'+id, {
       item: data
     })
     .then(res => this.setState({ items: res.data }))
@@ -19,7 +21,7 @@ class ItemService {
   }
 
   sendData(data) {
-    axios.post('https://sayurkool.herokuapp.com/items/add/post', {
+    axios.post(config.app.url + '/items/add/post', {
     item: data
   })
   .then(function (response) {
