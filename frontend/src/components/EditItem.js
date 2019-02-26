@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ItemService from './ItemService';
 
+const config = require('../config');
+
 class EditItem extends Component {
 
   constructor(props) {

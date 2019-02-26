@@ -2,6 +2,8 @@
 
 import axios from 'axios';
 
+const config = require('../config');
+
 class ItemService {
 	
    deleteData(id){

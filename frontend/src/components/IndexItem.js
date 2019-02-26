@@ -5,6 +5,8 @@ import ItemService from './ItemService';
 import axios from 'axios';
 import TableRow from './TableRow';
 
+const config = require('../config');
+
 class IndexItem extends Component {
 
   constructor(props) {
@@ -13,7 +15,7 @@ class IndexItem extends Component {
       this.addItemService = new ItemService();
     }
     componentDidMount(){
-      axios.get(config.app.url)
+      axios.get(config.app.url + '/items')
       .then(response => {
         this.setState({ items: response.data });
       })
