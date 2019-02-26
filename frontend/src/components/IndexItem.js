@@ -5,8 +5,6 @@ import ItemService from './ItemService';
 import axios from 'axios';
 import TableRow from './TableRow';
 
-const config = require('../../../server/config');
-
 class IndexItem extends Component {
 
   constructor(props) {
